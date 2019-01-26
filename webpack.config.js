@@ -8,7 +8,7 @@ module.exports = {
 
 	output: {
 		filename: 'bundle.js',
-		path: path.resolve(__dirname, 'public/assets'),
+		path: path.resolve(__dirname, 'public/assets')
 	},
 
 	devServer: {
@@ -44,6 +44,7 @@ module.exports = {
            		loader: 'file-loader',
            		options: {
              		name: '[name].[ext]',
+             		publicPath: 'assets'
            		}
          	}
          	]
@@ -59,6 +60,6 @@ module.exports = {
 	},
 
 	plugins: [
-		new VueLoaderPlugin(),
+		new VueLoaderPlugin()
 	]
 };

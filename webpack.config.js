@@ -2,7 +2,9 @@ const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
-	entry: './resources/js/app.js',
+	entry: [
+		'./resources/js/app.js'
+	],
 
 	output: {
 		filename: 'bundle.js',
@@ -10,8 +12,7 @@ module.exports = {
 	},
 
 	devServer: {
-    	publicPath: 'assets',
-    	contentBase: path.join(__dirname, 'public')
+		publicPath: '/assets/',
   	},
 
 	mode: 'development',
@@ -43,8 +44,6 @@ module.exports = {
            		loader: 'file-loader',
            		options: {
              		name: '[name].[ext]',
-             		//outputPath: 'fonts/',    // where the fonts will go
-             		publicPath: 'assets/'       // override the default path
            		}
          	}
          	]

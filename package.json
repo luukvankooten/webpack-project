@@ -21,6 +21,6 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --config webpack.config.js --watch",
-    "hot": "npm run watch & webpack-dev-server --content-base ./ --port 3000 --hot"
+    "hot": "npm run watch & webpack-dev-server --content-base ./public --port 3000 --hot --watch-content-base"
   }
 }

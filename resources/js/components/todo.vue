@@ -23,13 +23,11 @@
 					</template>
 			</card-body>
 
-			<list v-for="(key, index) in list" 
-				:todo="key.todo" 
-				:done="key.done" 
-				:number="index" 
-				:key="index"
-				v-on:edit="edit"
-				v-on:remove="remove">		
+			<list v-for="key in list" 
+				:todo="key.todo"  
+				:key="key.id"
+				@edit="edit"
+				@remove="remove">		
 			</list>
 		</div>	
 	</div>
@@ -44,6 +42,7 @@
 				list: [],
 				todo: "",
 				invalid: false,
+				counter: 0,
 			}
 		},
 
@@ -54,27 +53,40 @@
 					this.invalid = true
 
 					return
+				} else {
+					this.invalid = false
 				}
 
 				this.list.push({
-					todo: this.todo,
-					done: false
+					id: this.counter,
+					todo: this.todo
 				})
 
+
+				++this.counter
 				this.todo = ""
-				this.invalid = false
+				
 			},
 
 			edit(num, val) {
-				this.list[num].todo = val
+				let pos = this.getPosition(num)
+
+				this.list[pos].todo = val
 			},
 
 			remove(num) {
-				this.list.splice(num, 1)
+				let pos = this.getPosition(num)
+
+				this.$delete(this.list, pos)
 			},
 
 			input(val) {
 				this.todo = val
+			},
+
+			getPosition(num) {
+				return this.list.map(l => l.id)
+				.indexOf(num)
 			}
 		}
 	}

@@ -49,9 +49,7 @@
 	export default {
 
 		props: {
-			number: Number,
 			todo: String,
-			done: Boolean
 		},
 
 		data() {
@@ -59,7 +57,8 @@
 				checked: false,
 				editmode: false,
 				text: this.todo,
-				invalid: false
+				invalid: false,
+				number: this.$vnode.key,
 			}
 		},
 

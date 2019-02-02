@@ -48,10 +48,16 @@
 				if (this.non_valid) {
 					this.non_valid = false
 				}
-
-
+				
 				this.$emit('input', this.input)
+			},
+
+			value(val) {
+				if (val === "") {
+					this.input = ""
+				}
 			}
+
 		}
 	}
 </script>

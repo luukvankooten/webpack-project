@@ -8,7 +8,7 @@ module.exports = {
 
 	output: {
 		filename: 'bundle.js',
-		path: path.resolve(__dirname, 'public/assets')
+		path: path.resolve(__dirname, 'public/assets'),
 	},
 
 	devServer: {
@@ -16,6 +16,8 @@ module.exports = {
   	},
 
 	mode: 'development',
+
+	devtool: 'eval-source-map',
 
 	module: {
 		rules: [
